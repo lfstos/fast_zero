@@ -4,6 +4,14 @@ from fastapi.testclient import TestClient
 
 from fast_zero.app import app
 
+# def test_root_deve_retornar_ola_mundo_em_html():
+#     client = TestClient(app)
+
+#     response = client.get('/ola/')
+
+#     assert response.status_code == HTTPStatus.OK
+#     assert '<h1>Olá Mundo!</h1>' in response.text
+
 
 def test_read_root_deve_retornar_ok_e_ola_mundo():
     # Oraganização das coisas para poder testas
@@ -14,15 +22,6 @@ def test_read_root_deve_retornar_ok_e_ola_mundo():
 
     assert response.status_code == HTTPStatus.OK  # Assert (garantindo)
     assert response.json() == {'message': 'Olá Mundo!'}  # Assert (garantindo)
-
-
-def test_root_deve_retornar_ola_mundo_em_html():
-    client = TestClient(app)
-
-    response = client.get('/ola-mundo')
-
-    assert response.status_code == HTTPStatus.OK
-    assert '<h1>Olá Mundo!</h1>' in response.text
 
 
 def test_create_user():

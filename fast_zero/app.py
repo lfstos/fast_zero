@@ -6,6 +6,7 @@ from fast_zero.schemas import Message, UserDB, UserPublic, UserSchema
 
 app = FastAPI()
 
+
 database = []
 
 

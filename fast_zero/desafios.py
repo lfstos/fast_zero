@@ -1,9 +1,11 @@
 from http import HTTPStatus
 
-from fast_zero.schemas import Message
+from fastapi.responses import HTMLResponse
+
+from fast_zero.app import app
 
 
-@app.get('/ola-mundo', response_model=Message, status_code=HTTPStatus.OK)
+@app.get('/ola/', response_class=HTMLResponse, status_code=HTTPStatus.OK)
 def ola_mundo():
     return """
         <html>
