@@ -70,6 +70,37 @@ def test_update_user(client):
     }
 
 
+def test_update_user_should_return_not_found(client):
+    response = client.put(
+        '/users/111',
+        json={
+            'username': 'testusername111',
+            'email': 'test@test.com',
+            'password': 'senha-legal',
+        },
+    )
+
+    assert response.status_code == HTTPStatus.NOT_FOUND
+    assert response.json() == {'detail': 'User not found'}
+
+
+def test_get_user_exercicio(client):
+    response = client.get('/users/1')
+
+    assert response.json() == {
+        'id': 1,
+        'username': 'testusername2',
+        'email': 'test@test2.com'
+    }
+
+
+def test_delete_user_should_return_not_found_execicio(client):
+    response = client.delete('/users/111')
+
+    assert response.status_code == HTTPStatus.NOT_FOUND
+    assert response.json() == {'detail': 'User not found'}
+
+
 def test_delete_user(client):
     response = client.delete('/users/1')
 
