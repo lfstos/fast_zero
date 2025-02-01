@@ -90,7 +90,7 @@ def test_get_user_exercicio(client):
     assert response.json() == {
         'id': 1,
         'username': 'testusername2',
-        'email': 'test@test2.com'
+        'email': 'test@test2.com',
     }
 
 
